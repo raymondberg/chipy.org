@@ -16,6 +16,12 @@ run:
 up:
 	docker-compose up -d
 
+down:
+	docker-compose down
+
+shell:
+	docker-compose exec web bash 
+
 web: run
 
 migrate:

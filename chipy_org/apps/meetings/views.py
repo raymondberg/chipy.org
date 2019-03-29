@@ -269,10 +269,13 @@ class RSVPlistHost(RSVPlistCSVBase):
 
 
 class PastTopics(ListView):
-    context_object_name = 'topics'
-    template_name = 'meetings/past_topics.html'
-    queryset = Topic.objects.filter(
-        meeting__when__lt=datetime.date.today(), approved=True).order_by("-meeting__when")
+    pass
+    # context_object_name = 'topics'
+    # template_name = 'meetings/past_topics.html'
+    # queryset = Presentor.objects.all()#filter(
+    #     meeting__when__lt=datetime.date.today(),
+    #     approved=True,
+    # ).order_by("meeting__when")[:4]
 
 
 class PastTopic(DetailView):

@@ -1,0 +1,44 @@
+{% extends "site_base.html" %}
+
+{% load i18n staticfiles %}
+
+{% block head_title %}{% trans "Recent Topics" %}{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body %}
+<div class="row-fluid">
+  <div class="span12 talk-list">
+    <h1>
+        <a href="{% url 'past_meetings' %}">Past Meetings</a> &bull;
+        Recent Topics
+    </h1>
+    {% for talk in topics %}
+      {% include 'meetings/_talk.html' %}
+    {% endfor %}
+    <span class="count">{{ object_list|length }} talk{{ object_list|pluralize }}</span>
+  </div>
+</div>
+
+{% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+{% endblock body %}
