@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
 
 from django.db import models
-from django.db.models.fields.subclassing import SubfieldBase
 from django.utils.text import capfirst
 from django.utils.translation import ugettext_lazy as _
 
@@ -55,7 +54,7 @@ def range_check(value, name, min=None, max=None):
     return value
 
 
-class IntervalField(six.with_metaclass(SubfieldBase, models.Field)):
+class IntervalField(models.Field):
     """This is a field, which maps to Python's datetime.timedelta.
 
     For PostgreSQL, its type is INTERVAL - a native interval type.
@@ -88,7 +87,7 @@ class IntervalField(six.with_metaclass(SubfieldBase, models.Field)):
             return 'INTERVAL'
         return 'BIGINT'
 
-    def to_python(self, value):
+    def from_db_value(self, value, expression_connection):
         if isinstance(value, timedelta):
             # psycopg2 will return a timedelta() for INTERVAL type column
             # in database
