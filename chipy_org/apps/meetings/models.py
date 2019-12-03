@@ -6,10 +6,10 @@ from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-from interval.fields import IntervalField
 from tinymce import models as tinymce_models
 
 from chipy_org.libs.models import CommonModel
+from chipy_org.libs.interval_field import IntervalField
 
 MAX_LENGTH = 255
 

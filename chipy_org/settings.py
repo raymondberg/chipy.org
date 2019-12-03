@@ -231,13 +231,15 @@ INSTALLED_APPS = [
     'django_gravatar',
     'gunicorn',
     'honeypot',
-    'interval',
     'rest_framework',
     'social_django',
     'storages',
     'tinymce',
     "sorl.thumbnail",
     "ckeditor",
+
+    # Vendored third party
+    'chipy_org.libs.interval_field',
 
     # theme
     'django_forms_bootstrap',
