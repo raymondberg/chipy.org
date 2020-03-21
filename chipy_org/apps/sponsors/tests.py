@@ -33,6 +33,8 @@ def sponsor_with_logo():
 
 @override_settings(STATICFILES_STORAGE=global_settings.STATICFILES_STORAGE)
 def test_sponsor_list(client, sponsor):
+    import os
+    env = os.environ
     response = client.get(reverse("sponsor_list"))
     assert response.status_code == 200
 
