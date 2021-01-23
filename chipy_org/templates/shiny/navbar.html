@@ -58,11 +58,11 @@
                         {% if user.is_authenticated %}
                         <li><a class="nav-link" href="{% url 'after-submit-job-post' %}">MY JOBS</a></li>
                         {% endif %}
-                        
+
                         {% if user.is_authenticated %}
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Logged in as:<br> 
+                                    Logged in as:<br>
                                     {{ user.first_name }} {{ user.last_name }}
                                 </a>
 
@@ -70,12 +70,12 @@
                                     <li><a class="dropdown-item font-montserrat-bold" href="{% url 'my_topics' %}">MY TALKS</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item font-montserrat-bold" href="{% url "profiles:edit" %}">ACCOUNT</a></li>
-                                    
+
                                     {% if user.is_staff %}
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item font-montserrat-bold" href="{% url "admin:index" %}">ADMIN</a></li>
                                     {% endif %}
-                                
+
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item font-montserrat-bold" href="#" data-bs-toggle="modal" data-bs-target="#login-modal">ADD ACCOUNT</a></li>
                                     <li><hr class="dropdown-divider"></li>

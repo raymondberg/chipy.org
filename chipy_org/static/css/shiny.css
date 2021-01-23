@@ -76,6 +76,10 @@ a:hover{
     width: 100%;
 }
 
+.clear-navbar {
+  margin-top: 5em
+}
+
 .dropdown-item.active, .dropdown-item:active {
     background-color: #007896;
 }
