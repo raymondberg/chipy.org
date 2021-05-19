@@ -157,10 +157,11 @@ class RSVP(ProcessFormView, ModelFormMixin, TemplateResponseMixin):
         self.object = None
 
         def lookup_meeting():
+            meeting_id
+
             if self.request.method == "POST":
                 meeting_id = self.request.POST.get("meeting", None)
-
-            if self.request.method == "GET":
+            elif self.request.method == "GET":
                 meeting_id = self.request.GET.get("meeting", None)
 
             if not meeting_id:
